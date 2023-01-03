@@ -116,6 +116,16 @@ class Visite
     {
         return $this->tempmax;
     }
+    public function getDatecreationString(): string {
+        if($this->datecreation==null){
+            return"";
+        } else {
+            return $this->datecreation->format('d/m/y');
+            
+        }
+        
+        
+    }
 
     public function setTempmax(?int $tempmax): self
     {
@@ -123,4 +133,5 @@ class Visite
 
         return $this;
     }
+    
 }
