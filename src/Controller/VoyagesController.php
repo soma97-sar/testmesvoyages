@@ -21,14 +21,16 @@ use Symfony\Component\HttpFoundation\Request;
  * @author soumia
  */
 class VoyagesController extends AbstractController {
+    
     /**
      * @Route("/voyages", name="voyages")
      * @return Response
      */
     public function index(): Response {
+        
         $visites = $this->repository->findAllOrderBy('datecreation','DESC');
         return $this->render("pages/voyages.html.twig",[
-            'visites'=>$visites
+            'visites'=>$visites,
         ]);
         
     }
@@ -58,6 +60,18 @@ class VoyagesController extends AbstractController {
             'visites'=>$visites
         ]);
     
+    }
+    /**
+     * @Route("/voyages/voyage/{id}", name="voyages.showone")
+     * @param type $id
+     * @return Response
+     */
+    public function showOne($id):Response { 
+        $visite= $this->repository->find($id);
+        return $this->render("pages/voyages.html.twig",[
+            'visite'=>$visite
+        ]);
+        
     }
     /**
      * 
