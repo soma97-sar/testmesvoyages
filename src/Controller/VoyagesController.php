@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 
+
 /**
  * Description of VoyagesController
  *
@@ -68,8 +69,9 @@ class VoyagesController extends AbstractController {
      */
     public function showOne($id):Response { 
         $visite= $this->repository->find($id);
-        return $this->render("pages/voyages.html.twig",[
+        return $this->render("pages/voyage.html.twig",[
             'visite'=>$visite
+                
         ]);
         
     }
